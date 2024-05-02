@@ -1,5 +1,5 @@
 globalnorm: 
-	g++ -g -std=c++17 -I/usr/local/include GlobalNorm.cpp Alignment.cpp Context.cpp -o globalnorm -L/usr/local/lib -lfst -ldl
+	g++ -g -std=c++17 -I includes GlobalNorm.cpp Alignment.cpp Context.cpp -o globalnorm -L link-dep -lfst -ldl
 
 fst:
 	./show_fst.sh alignment
