@@ -8,7 +8,7 @@ We implemented the segment of this pipeline intended for computing the global no
 
 We don't actually use the neural network for training the weights, but instead we use two different kinds of intialisation of weights, random and uniform. And then we apply the global normalisation to get the probability distribution over the strings. 
 
-We contructed the context and alignment WFSTs using the OpenFst library. We also show the state diagram corresponding to these WFSTs.
+We constructed the context and alignment WFSTs using the OpenFst library. We also show the state diagram corresponding to these WFSTs.
 
 
 ### Dependencies involved:
