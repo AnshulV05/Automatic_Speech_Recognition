@@ -16,6 +16,18 @@ We constructed the context and alignment WFSTs using the OpenFst library. We als
 * Eigen 
 
 ### Instructions for running the code:
+Download the two folders *includes* and *link-dep* from the following [link](https://drive.google.com/drive/folders/1qa_rMOMRlXKRw8JsL9Z5iS8fEGTC-IP_?usp=sharing) and keep them in the directory:
+The directory structure should be as follows: <br><br>
+. <br>
+|_ Alignment.cpp <br>
+|_Context.cpp <br>
+|_GlobalNorm.cpp <br>
+|_Makefile <br>
+|_create_links.sh <br>
+|_show_fst.sh <br>
+|_support.h <br>
+|_includes <br>
+|_link-dep<br>
 
 To construct the desired FSTs and calculation of globalnorm run the following command:
 ```
