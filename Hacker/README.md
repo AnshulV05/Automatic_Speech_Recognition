@@ -24,7 +24,17 @@ The state diagram for a context FSA with alphabet {a, b} and n = 4 is as follows
 * Eigen 
 
 ### Instructions for running the code:
-Download the two folders *includes* and *link-dep* from the following [link](https://drive.google.com/drive/folders/1qa_rMOMRlXKRw8JsL9Z5iS8fEGTC-IP_?usp=sharing) and keep them in the directory. <br><br>
+Install openfst-1.8.3 using the [link](https://www.openfst.org/twiki/pub/FST/FstDownload/openfst-1.8.3.tar.gz). Untar the zip and run the following commands in succession:
+```
+cd openfst-1.8.3
+./configure
+make
+make install
+```
+<br>(You might have to provide root access in order to run the make commands). <br>
+
+Download the folder *includes* from the following [link](https://drive.google.com/drive/folders/1qa_rMOMRlXKRw8JsL9Z5iS8fEGTC-IP_?usp=sharing) and keep them in the directory. <br><br>
+
 The final directory structure should be as follows: <br><br>
 . <br>
 |_ Alignment.cpp <br>
@@ -35,16 +45,13 @@ The final directory structure should be as follows: <br><br>
 |_show_fst.sh <br>
 |_support.h <br>
 |_includes <br>
-|_link-dep<br>
-
-After this run the script **create_links.sh**  (``` ./create_links.sh ```) to make appropriate symlinks to linker files.
 
 To construct the desired FSAs and calculate the probability of different strings using globalnorm run the following command:
 ```
 make globalnorm
 ./globalnorm
-
 ```
+
 Enter desired values of n (n-gram dependency) and T (total timeframe length) and obtain the probability distribution over the strings. 
 
 After running the make for globalnorm, run the following command to see the FSAs that are created in respective pdf files:
@@ -55,10 +62,11 @@ make fst
 Run ``` make clean ``` to clean up the directory. 
 
 ### File Descriptions
-The code is split accross three files Alignment.cpp, Context.cpp and GlobalNorm.cpp and a header file support.h which includes all the declarations, all of the code was written from scratch,
+The code is split across three files Alignment.cpp, Context.cpp and GlobalNorm.cpp and a header file support.h which includes all the declarations, all of the code was written from scratch,
 * **Alignment.cpp** - This file contains the code for the alignment FSA class, an alignment FSA accepts all strings of length less than or equal to T, where T is the number of timesteps.
 * **Context.cpp** - This file contains the code for the context FSA class, a context FSA remembers the last n inputs and when it makes a transition on any alphabet it forgets the oldest input and remembers the current alphabet.
-* **GlobalNorm.cpp** - This contains the implemtation of the main class that calculates globally normalized sentence scores. The class takes in the context and the alignment FSA to initialize. The Glob_Norm_ASR class contains three functions in it's interface-
+* **GlobalNorm.cpp** - This contains the implementation of the main class that calculates globally normalized sentence scores. The class takes in the context and the alignment FSA to initialize. It contains alphabets vector which specify the alphabets used within the program. (Change this according to need).
+* The Glob_Norm_ASR class contains three functions in its interface-
   * get_denominator - this function calculates the sum of scores accross all possible sentences of length less than or equal to T. This only needs to be called once.
   * get _numerator - this function calculates the score of a single string.
   * get_pdf - this function generates the probability distribution across all sentences of length less than or equal to T.
