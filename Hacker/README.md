@@ -56,9 +56,9 @@ Run ``` make clean ``` to clean up the directory.
 
 ### File Descriptions
 The code is split accross three files Alignment.cpp, Context.cpp and GlobalNorm.cpp and a header file support.h which includes all the declarations, all of the code was written from scratch,
-* Alignment.cpp - This file contains the code for the alignment FSA class, an alignment FSA accepts all strings of length less than or equal to T, where T is the number of timesteps.
-* Context.cpp - This file contains the code for the context FSA class, a context FSA remembers the last n inputs and when it makes a transition on any alphabet it forgets the oldest input and remembers the current alphabet.
-* GlobalNorm.cpp - This contains the implemtation of the main class that calculates globally normalized sentence scores. The class takes in the context and the alignment FSA to initialize. The Glob_Norm_ASR class contains three functions in it's interface-
+* **Alignment.cpp** - This file contains the code for the alignment FSA class, an alignment FSA accepts all strings of length less than or equal to T, where T is the number of timesteps.
+* **Context.cpp** - This file contains the code for the context FSA class, a context FSA remembers the last n inputs and when it makes a transition on any alphabet it forgets the oldest input and remembers the current alphabet.
+* **GlobalNorm.cpp** - This contains the implemtation of the main class that calculates globally normalized sentence scores. The class takes in the context and the alignment FSA to initialize. The Glob_Norm_ASR class contains three functions in it's interface-
   * get_denominator - this function calculates the sum of scores accross all possible sentences of length less than or equal to T. This only needs to be called once.
   * get _numerator - this function calculates the score of a single string.
   * get_pdf - this function generates the probability distribution across all sentences of length less than or equal to T.
