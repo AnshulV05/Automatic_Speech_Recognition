@@ -62,3 +62,6 @@ The code is split accross three files Alignment.cpp, Context.cpp and GlobalNorm.
   * get_denominator - this function calculates the sum of scores accross all possible sentences of length less than or equal to T. This only needs to be called once.
   * get _numerator - this function calculates the score of a single string.
   * get_pdf - this function generates the probability distribution across all sentences of length less than or equal to T.
+
+ &copy; 03/05/20224 : This project is developed, maintained and the intellectual property of Ayush Agarwal, Anshul Verma, Akshat Goyal and Anand Narasimham, currently Undergraduate Thirdie in the CSE Department@IIT Bombay.
+
