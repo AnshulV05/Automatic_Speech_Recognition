@@ -37,7 +37,7 @@ The final directory structure should be as follows: <br><br>
 |_includes <br>
 |_link-dep<br>
 
-After this run the script **create_links.sh**  (``` ./create_links.sh ```) to make appropriate symlinks to link files.
+After this run the script **create_links.sh**  (``` ./create_links.sh ```) to make appropriate symlinks to linker files.
 
 To construct the desired FSAs and calculate the probability of different strings using globalnorm run the following command:
 ```
