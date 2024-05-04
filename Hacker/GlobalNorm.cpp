@@ -1,7 +1,5 @@
 #include"support.h"
 
-
-
 vector<string> alphabets = {"a", "b"};
 
 SymbolTable symtab;
@@ -32,11 +30,11 @@ class Glob_Norm_ASR{
 		for(int i=0;i<T;i++){
 			for(int j=0;j<C;j++){
 				for(int k=0;k<C;k++){
-					if(cont.check_edge(j, k)) {wt_sigma[i](j, k)= option?rand()%100:1;} // Change this According to weight
+					if(cont.check_edge(j, k)) {wt_sigma[i](j, k)= option?rand()%5:1;} // Change this According to weight
 					else{
 						wt_sigma[i](j, k)= 0;
 					}
-					if(j==k){ wt_epsilon[i](j, k)= option?rand()%100:1;} // Change this According to weight
+					if(j==k){ wt_epsilon[i](j, k)= option?rand()%5:1;} // Change this According to weight
 					else{
 						wt_epsilon[i](j, k)= 0;
 					}
@@ -127,19 +125,8 @@ int main(){
 
 	Alignment alignment_fsa = Alignment(T);
     alignment_fsa.fst.Write("alignment.fst");
-
-	fst::StdVectorFst composed_fsa; // The fst composed
 	
-	// fst::StdVectorFst projected_c, projected_a;
-
-	// Project(alignment_fsa.fst, &projected_a, ProjectType::INPUT);
-	// Project(context_fsa.fst, &projected_c, ProjectType::INPUT);
-
-	// ArcSort(&projected_a, StdOLabelCompare());
-	// ArcSort(&projected_c, StdILabelCompare());
-
-	// Intersect(projected_a, projected_c, &composed_fsa);
-	int C = ((1<<(n+1))-1);
+	int C = (pow(alphabets.size(), n+1) - 1 + 0.001)/(alphabets.size() -1);
 	Glob_Norm_ASR x = Glob_Norm_ASR(n, C, T, context_fsa, alignment_fsa);
 	x.get_pdf();
 	
